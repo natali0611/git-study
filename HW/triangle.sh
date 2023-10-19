@@ -1,10 +1,7 @@
 #!/bin/bash
-x=$1
-y=$2
-z=$3
-if [ $x -ge 1 ] && [ $x -le 100 ] && [ $y -ge 1 ] && [ $y -le 100 ] && [ $z -ge 1 ] && [ $z -le 100 ];then
-   if [ $x -eq $y ] && [ $x -eq $z ];then echo "EQUILATERAL"
-   elif [ $x -eq $y ] || [ $x -eq $z ] || [ $y -eq $z ];then echo "ISOSCELES"
+if [ $1 -ge 1 ] && [ $1 -le 100 ] && [ $2 -ge 1 ] && [ $2 -le 100 ] && [ $3 -ge 1 ] && [ $3 -le 100 ];then
+   if [ $1 -eq $2 ] && [ $1 -eq $3 ];then echo "EQUILATERAL"
+   elif [ $1 -eq $2 ] || [ $1 -eq $3 ] || [ $2 -eq $3 ];then echo "ISOSCELES"
    else echo "SCALENE"
    fi
 else 
