@@ -1,0 +1,2 @@
+root /bin/bash
+test2 /bin/bash
