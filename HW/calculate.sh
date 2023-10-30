@@ -1,14 +1,15 @@
 #!/bin/bash
-declare -i x y
-x=$1
-y=$2
-if [ -n  "$1" ] && [ -n "$2" ]; then
-    echo -e "Sum: $((x+y))\nProduct: $((x*y))"
-    if [[ $y -eq 0 ]]; then
-    echo "can't divide by 0"
-    else
-    echo "Quotient: $((x/y))" 
-    fi
-    echo "Difference: $((x-y))"
-else echo "error"
+#check for the presence of arguments
+if [ $# -ne 2 ]; then
+    echo "error:input arguments"
+    exit 1
 fi
+
+echo -e "Sum: $(($1+$2))\nProduct: $(($1*$2))\nDifference: $(($1-$2))"
+#check the dekiver isn't 0
+if [[ $2 -eq 0 ]]; then
+   echo "can't divide by 0"
+else
+   echo "Quotient: $(($1/$2))" 
+fi
+ 
