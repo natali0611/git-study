@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: no
+  become: no
+  vars:
+    ssh_key_filename: key
+    ssh_key_location_path: /home/natali/ansible
+    sshd_config_file: /etc/ssh/sshd_config
+    local_user: natali
+  roles:
+    - user_with_keys

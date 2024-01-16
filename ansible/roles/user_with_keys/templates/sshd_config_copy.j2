@@ -1,0 +1,26 @@
+{% if permit_root_login is defined %}
+PermitRootLogin {{ 'yes' if permit_root_login else 'no' }}
+{% endif %}
+
+Include /etc/ssh/sshd_config.d/*.conf
+
+{% if password_authentication is defined %}
+PasswordAuthentication {{ 'yes' if password_authentication else 'no' }}
+{% endif %}
+
+{% if permit_empty_passwords is defined %}
+PermitEmptyPasswords {{ 'no' if permit_empty_passwords else 'yes' }}
+{% endif %}
+
+KbdInteractiveAuthentication no
+
+UsePAM yes
+
+X11Forwarding yes
+
+PrintMotd no
+
+AcceptEnv LANG LC_*
+
+Subsystem	sftp	/usr/lib/openssh/sftp-server
+

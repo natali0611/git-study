@@ -1,0 +1,8 @@
+---
+- name: Test Connection to my service
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Ping my service
+    ping:

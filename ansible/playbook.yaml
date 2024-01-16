@@ -1,0 +1,37 @@
+---
+- name: Host preparation
+  hosts: all
+  gather_facts: no
+  become: yes
+  vars:
+    requirements:
+    - git
+    - net-tools
+
+  tasks:
+
+  - name: Check/Install requirements packages
+    apt:
+      name: "{{ requirements }}"
+      state: present
+      update_cache: yes
+
+- name: Apache host preparation
+  hosts: apache
+  gather_facts: no
+  become: yes
+
+  tasks:
+  - name: Check/Install apache
+    apt:
+      name: apache2
+      state: present
+    notify: start apache
+
+  handlers:
+  - name: start apache
+    become: yes
+    service:
+      name: httpd
+      state: started
+      anabled: yes

@@ -1,0 +1,6 @@
+---
+# defaults file for deploy_nginx
+hosts: all
+become: no
+gather_facts: yes
+  

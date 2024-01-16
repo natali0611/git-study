@@ -1,0 +1,7 @@
+---
+# handlers file for user_with_keys
+- name: restart sshd
+  become: yes
+  service:
+    name: sshd
+    state: restarted
